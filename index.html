@@ -24,15 +24,12 @@
       ndef.onreading = event => {
         const decoder = new TextDecoder();
         for (const record of event.message.records) {
-          consoleLog(decoder.decode(record.data));
+          let data = decoder.decode(record.data);
     var xhr = new XMLHttpRequest();  
     xhr.open("POST", "http://192.168.1.13:8087/readFromCard");  
-    let data = `{
-   "cardNumber": "97888399912111",
-    "expiryDate": "12/08/2024"
-}`;
+    
 xhr.setRequestHeader("Content-type", "application/json");
-    xhr.send(decoder.decode(record.data)); 
+    xhr.send(data); 
     xhr.onload = () => console.log(xhr.responseText);
     xhr.onreadystatechange = function() { 
       console.log("inner");
