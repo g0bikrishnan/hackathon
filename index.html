@@ -17,6 +17,7 @@
 
 
   if ("NDEFReader" in window) {
+    document.getElementById("btn").style.display="none";
     const ndef = new NDEFReader();
     try {
       await ndef.scan();
@@ -42,6 +43,7 @@ xhr.setRequestHeader("Content-type", "application/json");
           
           document.getElementById("p2").style.display = "block";
           document.getElementById("form").style.display="none";
+         
         }else{
           document.getElementById("p1").style.display = "block";
         }
@@ -201,11 +203,10 @@ form{
           <label for="Enter Amount">Enter Amount</label> <br>
           <input type="text">
           <pre id="log"></pre>
-          <p>
-            <button class="btn btn-success" onclick="readTag()">Test NFC Read</button>
-          </p>
         </form>
-        
+        <p>
+          <button id="btn" class="btn btn-success" onclick="readTag()">Test NFC Read</button>
+        </p>
       </div>
       <div class="box"> 
         <div id="p2" class="success alert">
