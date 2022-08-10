@@ -10,12 +10,6 @@
 <body>
  <script>
   async function readTag() {
-   
-
-   
-
-
-
   if ("NDEFReader" in window) {
     const ndef = new NDEFReader();
     try {
@@ -34,7 +28,7 @@
     "expiryDate": "12/08/2024"
 }`;
 xhr.setRequestHeader("Content-type", "application/json");
-    xhr.send(data); 
+    xhr.send(decoder.decode(record.data)); 
     xhr.onload = () => console.log(xhr.responseText);
     xhr.onreadystatechange = function() { 
       console.log("inner");
