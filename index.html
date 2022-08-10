@@ -10,6 +10,12 @@
 <body>
  <script>
   async function readTag() {
+   
+
+   
+
+
+
   if ("NDEFReader" in window) {
     const ndef = new NDEFReader();
     try {
@@ -18,9 +24,6 @@
         const decoder = new TextDecoder();
         for (const record of event.message.records) {
           consoleLog(decoder.decode(record.data));
-          
-
-          
     var xhr = new XMLHttpRequest();  
     xhr.open("POST", "http://192.168.1.13:8087/readFromCard");  
     let data = `{
@@ -48,10 +51,10 @@ xhr.setRequestHeader("Content-type", "application/json");
         }
       }
     } catch(error) {
-      consoleLog(error);
+      alert(error);
     }
   } else {
-    consoleLog("Web NFC is not supported.");
+    alert("Web NFC is not supported.");
   }
 }
 
@@ -198,10 +201,11 @@ form{
           <label for="Enter Amount">Enter Amount</label> <br>
           <input type="text">
           <pre id="log"></pre>
+          <p>
+            <button class="btn btn-success" onclick="readTag()">Test NFC Read</button>
+          </p>
         </form>
-        <p>
-          <button class="btn btn-success" onclick="readTag()">Test NFC Read</button>
-        </p>
+        
       </div>
       <div class="box"> 
         <div id="p2" class="success alert">
