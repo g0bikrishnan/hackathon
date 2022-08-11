@@ -37,18 +37,19 @@ xhr.setRequestHeader("Content-type", "application/json");
       if (xhr.readyState == 4)
         if (xhr.status == 200) 
         {
+          alert(xhr.response.message)
           if(xhr.response.message=="approved"){
             alert(xhr.response)
           document.getElementById("p2").style.display = "block";
-         
+          document.getElementById('log').innerHTML=xhr.response,message;
           }
           else if(xhr.response.message=="denied"){
             document.getElementById("p1").style.display = "block";
-           
+            document.getElementById('log').innerHTML=xhr.response,message;
           }else if(xhr.response.message=="expired"){
 
             document.getElementById("p1").style.display = "block";
-            
+            document.getElementById('log').innerHTML=xhr.response,message;
             }
          
           document.getElementById("form").style.display="none";
