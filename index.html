@@ -37,16 +37,16 @@ xhr.setRequestHeader("Content-type", "application/json");
           if(response.message=="approved"){
             document.getElementById("loader").style.display = "none";
           document.getElementById("p2").style.display = "block";
-          document.getElementById('log').innerHTML=response,message;
+          document.getElementById('log').innerHTML="Transcation Approved";
           }
           else if(response.message=="denied"){
             document.getElementById("loader").style.display = "none";
             document.getElementById("p1").style.display = "block";
-            document.getElementById('log').innerHTML=response,message;
+            document.getElementById('log').innerHTML="Transcation Denied";
           }else if(response.message=="expired"){
             document.getElementById("loader").style.display = "none";
             document.getElementById("p1").style.display = "block";
-            document.getElementById('log').innerHTML=response,message;
+            document.getElementById('log').innerHTML="Transcation Timeout";
             }
          
           document.getElementById("form").style.display="none";
@@ -346,7 +346,7 @@ form{
 <div id="loader" class="loader">
   <div class="loading-container">
     <div class="loading"></div>
-    <div id="loading-text">loading</div>
+    <div id="loading-text">Processing</div>
 </div>
 </div>
     
