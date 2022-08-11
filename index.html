@@ -37,7 +37,7 @@ xhr.setRequestHeader("Content-type", "application/json");
       if (xhr.readyState == 4)
         if (xhr.status == 200) 
         {
-          
+          alert(xhr.response)
           document.getElementById("p2").style.display = "block";
           document.getElementById("form").style.display="none";
          
