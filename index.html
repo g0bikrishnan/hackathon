@@ -37,9 +37,22 @@ xhr.setRequestHeader("Content-type", "application/json");
       if (xhr.readyState == 4)
         if (xhr.status == 200) 
         {
-          alert(xhr.response)
+          if(xhr.response.message=="approved"){
+            alert(xhr.response)
           document.getElementById("p2").style.display = "block";
+          document.getElementById('log').innerHTML=xhr.response,message;
+          }
+          else if(xhr.response.message=="denied"){
+            document.getElementById("p1").style.display = "block";
+            document.getElementById('log').innerHTML=xhr.response,message;
+          }else if(xhr.response.message=="expired"){
+
+            document.getElementById("p1").style.display = "block";
+            document.getElementById('log').innerHTML=xhr.response,message;
+            }
+         
           document.getElementById("form").style.display="none";
+          
          
         }else{
           document.getElementById("p1").style.display = "block";
@@ -207,12 +220,12 @@ form{
       </div>
       <div class="box"> 
         <div id="p2" class="success alert">
-          <div class="alert-body">
+          <div id="log" class="alert-body">
             Transaction Success
           </div>
         </div>
           <div id="p1" class="error alert">
-            <div class="alert-body">
+            <div id="log" class="alert-body">
               Transaction Failure
             </div>
         </div>
